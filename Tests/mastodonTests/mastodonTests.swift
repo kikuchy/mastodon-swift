@@ -2,14 +2,12 @@ import XCTest
 @testable import mastodon
 
 class mastodonTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        XCTAssertEqual(mastodon().text, "Hello, World!")
+    func testCreateApp() {
+        let _ = App(name: "Sample", redirects: .noRedirect, scopes: [.read, .write, .follow])
     }
 
 
     static var allTests = [
-        ("testExample", testExample),
+        ("testExample", testCreateApp),
     ]
 }
