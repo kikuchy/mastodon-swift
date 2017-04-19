@@ -3,5 +3,8 @@
 import PackageDescription
 
 let package = Package(
-    name: "mastodon"
+    name: "mastodon",
+    dependencies: [
+        .Package(url: "https://github.com/Kuniwak/MirrorDiffKit.git", "1.0.1")
+    ]
 )
