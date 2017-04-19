@@ -7,7 +7,7 @@ public class Mastodon {
         self.httpClient = httpClient
     }
 
-    public func register(for instance: URL, app: App) throws -> LogoutedClient {
+    public func register(for instance: URL, app: App, completion: (ClientToken) -> Void) {
         let redirect: String
         switch app.redirect {
         case let .redirect(url: url):
@@ -27,6 +27,6 @@ public class Mastodon {
         
         self.httpClient.post()
         
-        return LogoutedClientImpl(with: app, via: self.httpClient)
+        completion(ClientToken(clientId: "", clientSecret: "", scopes: [.read, .write, .follow]))
     }
 }
